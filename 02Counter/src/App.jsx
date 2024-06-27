@@ -1,12 +1,11 @@
-// Video: https://youtu.be/tOYkV6Yhrhs?si=3MIJotq9el084sVT
-
 import { useState } from "react";
 import "./App.css";
 
 function App() {
+  // let counter = 15;
   const [counterValue, setCounterValue] = useState(0);
 
-  const increaseValue = () => {
+  const increaseCounterValue = () => {
     if (counterValue < 20) {
       // setCounterValue(counterValue + 1);
 
@@ -17,6 +16,7 @@ function App() {
       // setCounterValue(counterValue + 1);
       // setCounterValue(counterValue + 1);
 
+      // TODO: rename the prevCounterValue parameter to counterValue
       setCounterValue((prevCounterValue) => prevCounterValue + 1);
       setCounterValue((prevCounterValue) => prevCounterValue + 1);
       setCounterValue((prevCounterValue) => prevCounterValue + 1);
@@ -24,7 +24,7 @@ function App() {
     }
   };
 
-  const decreaseValue = () => {
+  const decreaseCounterValue = () => {
     if (counterValue > 0) {
       setCounterValue(counterValue - 1);
     }
@@ -35,9 +35,9 @@ function App() {
       <h1>Counter App</h1>
       <h2>Counter value: {counterValue}</h2>
 
-      <button onClick={increaseValue}>Increased value</button>
+      <button onClick={increaseCounterValue}>Increased value</button>
       <br />
-      <button onClick={decreaseValue}>Decreased value</button>
+      <button onClick={decreaseCounterValue}>Decreased value</button>
     </>
   );
 }
