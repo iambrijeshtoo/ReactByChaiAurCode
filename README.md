@@ -11,7 +11,4 @@ Week: 1 | 24-06-2024 to 30-06-2024
 1. How to create a React project?
    1. npx create-react-app
    2. npm create-vite@latest
-2. Custom react
-3. Counter app
-4. Interview question Counter app
-5. Props + Tailwind CSS
+
