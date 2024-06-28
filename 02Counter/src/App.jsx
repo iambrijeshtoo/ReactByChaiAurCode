@@ -17,7 +17,7 @@ function App() {
       // setCounterValue(counterValue + 1);
 
       // setCounterValue(() => {});
-      setCounterValue((previousCounterValue) => previousCounterValue + 1);
+      setCounterValue((previousCounterValue) => previousCounterValue + 1); 
       setCounterValue((previousCounterValue) => previousCounterValue + 1);
       setCounterValue((previousCounterValue) => previousCounterValue + 1);
       setCounterValue((previousCounterValue) => previousCounterValue + 1);
