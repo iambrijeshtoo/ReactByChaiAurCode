@@ -4,7 +4,7 @@ function Card({ username, buttonText = "Click me" }) {
   return (
     <div class="relative h-[400px] w-[300px] rounded-md">
       <img
-        src="https://images.unsplash.com/photo-1546961329-78bef0414d7c?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHVzZXJ8ZW58MHx8MHx8&amp;auto=format&amp;fit=crop&amp;w=800&amp;q=60"
+        src="https://media.licdn.com/dms/image/D4D03AQHPmI_Jx6z4EQ/profile-displayphoto-shrink_400_400/0/1668235506286?e=1724889600&v=beta&t=0TWYXC95d69QW8-8qdocS4OlpLC-h79TVbDc-Q4FEl8"
         alt="AirMax Pro"
         class="z-0 h-full w-full rounded-md object-cover"
       />

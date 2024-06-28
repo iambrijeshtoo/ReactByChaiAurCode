@@ -16,11 +16,11 @@ function App() {
       // setCounterValue(counterValue + 1);
       // setCounterValue(counterValue + 1);
 
-      // TODO: rename the prevCounterValue parameter to counterValue
-      setCounterValue((prevCounterValue) => prevCounterValue + 1);
-      setCounterValue((prevCounterValue) => prevCounterValue + 1);
-      setCounterValue((prevCounterValue) => prevCounterValue + 1);
-      setCounterValue((prevCounterValue) => prevCounterValue + 1);
+      // setCounterValue(() => {});
+      setCounterValue((previousCounterValue) => previousCounterValue + 1);
+      setCounterValue((previousCounterValue) => previousCounterValue + 1);
+      setCounterValue((previousCounterValue) => previousCounterValue + 1);
+      setCounterValue((previousCounterValue) => previousCounterValue + 1);
     }
   };
 
