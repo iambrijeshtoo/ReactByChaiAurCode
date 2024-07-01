@@ -40,12 +40,6 @@ export default UseStateComponent;
 // - The initial state value can be of any type, including objects and arrays.
 // - The state variable and the setState function should have meaningful names that describe their purpose.
 
-// When
-// - useState Hook is useful when you need to manage local state in a functional component.
-// - It is commonly used in components that need to display dynamic data or handle user interactions.
-// - useState Hook can be used multiple times in a single component to manage different state variables.
-// - It is recommended to use useState Hook instead of class components for new React projects.
-
 // Analogy
 // - Imagine you're a chef preparing a delicious dish (your React component). The recipe (your component code) outlines the steps and ingredients (props) needed to create the dish. However, some aspects of the dish can change dynamically, like the level of spiciness (state).
 
