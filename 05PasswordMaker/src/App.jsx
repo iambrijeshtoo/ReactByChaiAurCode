@@ -1,35 +1,95 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useCallback, useEffect, useRef } from "react";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [passwordLength, setPasswordLength] = useState(8);
+  const [isNumberAllowed, setIsNumberAllowed] = useState(false);
+  const [isCharacterAllowed, setIsCharacterAllowed] = useState(false);
+  const [password, setPassword] = useState("");
+  const passwordReference = useRef(null);
+
+  const generatePassword = useCallback(() => {
+    let newGeneratedPassword = "";
+    let alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+
+    if (isNumberAllowed) alphabets += "0123456789";
+    if (isCharacterAllowed) alphabets += "!@#$%&'()*+,-./";
+
+    for (let index = 1; index <= passwordLength; index++) {
+      let indexOfCharacter = Math.floor(Math.random() * alphabets.length + 1);
+      newGeneratedPassword += alphabets.charAt(indexOfCharacter);
+    }
+
+    setPassword(newGeneratedPassword);
+  }, [passwordLength, isNumberAllowed, isCharacterAllowed, setPassword]);
+
+  const copyPasswordToClipboard = useCallback(() => {
+    passwordReference.current?.select();
+    // passwordReference.current?.setSelectionRange(0, 24);
+    window.navigator.clipboard.writeText(password);
+  }, [password]);
+
+  useEffect(() => {
+    generatePassword();
+  }, [passwordLength, isNumberAllowed, isCharacterAllowed, generatePassword]);
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+    <div className="w-full max-w-md mx-auto shadow-md rounded-lg px-4 py-8 my-8 text-white bg-gray-800">
+      <h1 className="text-center text-2xl my-4">Password Generator</h1>
+      <div className="flex shadow rounded-lg overflow-hidden mb-4">
+        <input
+          type="text"
+          value={password}
+          className="outline-none w-full py-1 px-3"
+          placeholder="password"
+          readOnly
+          ref={passwordReference}
+        />
+        <button
+          onClick={copyPasswordToClipboard}
+          className="outline-none bg-blue-700 px-3 py-0.5 shrink-0"
+        >
+          Copy
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      <div className="flex text-sm gap-x-2">
+        <div className="flex items-center gap-x-1">
+          <input
+            type="range"
+            min={6}
+            max={24}
+            value={passwordLength}
+            className="cursor-pointer"
+            onChange={(eventObject) => {
+              setPasswordLength(eventObject.target.value);
+            }}
+          />
+          <label>Length: {passwordLength}</label>
+        </div>
+        <div className="flex items-center gap-x-1">
+          <input
+            type="checkbox"
+            defaultChecked={isNumberAllowed}
+            id="numberInput"
+            onChange={() => {
+              setIsNumberAllowed((previousValue) => !previousValue);
+            }}
+          />
+          <label htmlFor="numberInput">Numbers</label>
+        </div>
+        <div className="flex items-center gap-x-1">
+          <input
+            type="checkbox"
+            defaultChecked={isCharacterAllowed}
+            id="characterInput"
+            onChange={() => {
+              setIsCharacterAllowed((previousValue) => !previousValue);
+            }}
+          />
+          <label htmlFor="characterInput">Characters</label>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default App
+export default App;
