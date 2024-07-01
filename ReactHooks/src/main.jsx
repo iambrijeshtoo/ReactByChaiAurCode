@@ -6,7 +6,7 @@ import UseStateComponent from "./useState/UseStateComponent";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <UseStateComponent />
+    {/* <UseStateComponent /> */}
     {/* <ParentComponent /> */}
     {/* <UseRefComponent /> */}
   </React.StrictMode>
