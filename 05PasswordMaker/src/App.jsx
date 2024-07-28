@@ -9,14 +9,14 @@ function App() {
 
   const generatePassword = useCallback(() => {
     let newGeneratedPassword = "";
-    let alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    let string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
-    if (isNumberAllowed) alphabets += "0123456789";
-    if (isCharacterAllowed) alphabets += "!@#$%&'()*+,-./";
+    if (isNumberAllowed) string += "0123456789";
+    if (isCharacterAllowed) string += "!@#$%&'()*+,-./";
 
     for (let index = 1; index <= passwordLength; index++) {
-      let indexOfCharacter = Math.floor(Math.random() * alphabets.length + 1);
-      newGeneratedPassword += alphabets.charAt(indexOfCharacter);
+      let indexOfCharacter = Math.floor(Math.random() * string.length + 1);
+      newGeneratedPassword += string.charAt(indexOfCharacter);
     }
 
     setPassword(newGeneratedPassword);
@@ -35,7 +35,7 @@ function App() {
   return (
     <div className="w-full max-w-md mx-auto shadow-md rounded-lg px-4 py-8 my-8 text-white bg-gray-800">
       <h1 className="text-center text-2xl my-4">Password Generator</h1>
-      <div className="flex shadow rounded-lg overflow-hidden mb-4">
+      <div className="flex shadow rounded-lg overflow-hidden mb-4 text-black">
         <input
           type="text"
           value={password}
@@ -71,7 +71,7 @@ function App() {
             defaultChecked={isNumberAllowed}
             id="numberInput"
             onChange={() => {
-              setIsNumberAllowed((previousValue) => !previousValue);
+              setIsNumberAllowed((previousState) => !previousState);
             }}
           />
           <label htmlFor="numberInput">Numbers</label>
@@ -82,7 +82,7 @@ function App() {
             defaultChecked={isCharacterAllowed}
             id="characterInput"
             onChange={() => {
-              setIsCharacterAllowed((previousValue) => !previousValue);
+              setIsCharacterAllowed((previousState) => !previousState);
             }}
           />
           <label htmlFor="characterInput">Characters</label>

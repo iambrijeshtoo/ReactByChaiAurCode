@@ -10,6 +10,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     {/* <UseStateComponent /> */}
     {/* <ParentComponent /> */}
     {/* <UseRefComponent /> */}
-    <UseMemoComponent />
+    {/* <UseMemoComponent /> */}
   </React.StrictMode>
 );

@@ -2,6 +2,8 @@
 
 ## api link
 
+<!-- TODO: Please share the new link of getting the currency on youtube -->
+
 ```javascript
 let url = `https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${currency}.json`;
 ```
@@ -89,4 +91,5 @@ function App() {
     );
 
 ```
+
 cd
